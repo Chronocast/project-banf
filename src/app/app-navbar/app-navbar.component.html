@@ -8,14 +8,20 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle" href="" id="dropdown01" ngbDropdownToggle>Category</a>
+        <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Projects</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu>
-          <a class="dropdown-item" href="#">ng5</a>
-          <a class="dropdown-item" href="#">BANF</a>
-          <a class="dropdown-item" href="#">Firebase</a>
+          <div *ngFor="let project of projectsObservable | async">
+            <ngb-alert type="info" [dismissible]="false">
+              <a class="dropdown-item" href="http://nhascup.greenriverdev.com/ng5">{{project.title}}
+
+              </a><span class="badge badge-{{project.statusColor}}">{{project.status}}</span>
+              <!--<a class="dropdown-item" href="#">Bootstrap-Angular-N-Firebase Test</a>-->
+              <!--<a class="dropdown-item" href="#">Team Dream App</a>-->
+            </ngb-alert>
+          </div>
         </div>
       </li>
     </ul>
