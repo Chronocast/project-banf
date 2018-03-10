@@ -1,0 +1,15 @@
+<ul>
+  <div *ngFor="let project of projectsObservable | async">
+    <ngb-alert type="info" [dismissible]="false">
+      <h2>
+        {{project.title}}
+      </h2>
+      <p>{{project.description}}</p>
+      <span class="badge badge-secondary">Uses: {{project.language}}</span>
+      <br>
+      <div>
+        <button href="" target="_blank" class="btn btn-{{project.statusColor}}">{{project.status}}</button>
+      </div>
+    </ngb-alert>
+  </div>
+</ul>
